@@ -1,6 +1,6 @@
-# project_akhir
+# Notice Me
 
-A new Flutter project.
+An App that provides you for remind your activity
 
 ## Getting Started
 
