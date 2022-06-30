@@ -24,16 +24,9 @@ class DrawerScreen extends StatelessWidget {
               backgroundImage: AssetImage('lib/assets/img/dwika.jpg'),
             ),
           ),
-          DrawerListTile(
-            icon: Icons.group,
-            title: 'NewGroup',
-            onTilePressed: (){},
-          ),
-          DrawerListTile(
-            icon: Icons.lock,
-            title: 'New Secret Group',
-            onTilePressed: (){},
-          ),
+          // DrawerListTile(
+          //   icon: Icons.group,
+          // ),
           DrawerListTile(
             icon: Icons.notifications,
             title: 'New Channel Chat',
