@@ -36,7 +36,7 @@ var sportList = [
     name: "Gym", 
     time: "Sunday, 23 January 2022", 
     reminder: "45 mins before", 
-    note: "gym dapat diartikan sebagai tempat atau lokasi untuk melakukan kegiatan latihan dan olahraga seperti layanan senam, atletik, dan ataupun juga kardio.",
+    note: "Gym dapat diartikan sebagai tempat atau lokasi untuk melakukan kegiatan latihan dan olahraga seperti layanan senam, atletik, dan ataupun juga kardio.",
     textColor: textColorSport,
     )
 ];

@@ -21,6 +21,8 @@ void main() async {
   runApp(const MyApp());
 }
 
+// void main() => runApp(MyApp());
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -35,7 +37,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: mainTheme,
         // primarySwatch: Colors.blue,
       ),
-      home: const CircularProgressIndicator(),
+      // home: const LoginScreen(),
+      home: CircularProgressIndicator(),
     );
   }
 }

@@ -118,7 +118,7 @@ class DetailScreenMobile extends StatelessWidget{
                         ),
                       ),
                       Container(
-                        height: 150,
+                        height: size.height*.21,
                         width: size.width*.80,
                         decoration: BoxDecoration(
                           color: Color(0xFFFFF),

@@ -83,12 +83,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
+                            cursorColor: Colors.white,
                             // focusNode: emailInput,
                             controller: _emailController,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,width: 1.5),
                               ),
                               hintText: 'Email ID',
                               fillColor: Colors.white,
@@ -106,11 +110,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
                             // focusNode: emailInput,
+                            cursorColor: Colors.white,
                             controller: _fullNameController,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,width: 1.5),
                               ),
                               hintText: 'Full Name',
                               
@@ -129,12 +137,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
                             // focusNode: emailInput,
+                            cursorColor: Colors.white,
                             controller: _passwordController,
                             obscureText: _passwordVisible!,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,width: 1.5),
                               ),
                               hintText: 'Password',
                               fillColor: Colors.white,
@@ -163,12 +175,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
                             // focusNode: emailInput,
+                            cursorColor: Colors.white,
                             controller: _confirmPasswordController,
                             obscureText: _confirmPasswordVisible!,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,width: 1.5),
                               ),
                               hintText: 'Confirm Password',
                               fillColor: Colors.white,

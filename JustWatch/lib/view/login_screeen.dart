@@ -65,11 +65,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
+                            style: mainTextStyle_14,
                             controller: _emailController,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white, width: 1.5),
                               ),
                               hintText: 'Email ID',
                               hintStyle: TextStyle(
@@ -84,12 +88,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
+                            style: mainTextStyle_14,
                             controller: _passwordController,
                             obscureText: !_passwordVisible!,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,width: 1.5),
                               ),
                               hintText: 'Password',
                               hintStyle: TextStyle(

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "801039536450",
+    "project_id": "latihan-auth-efd2b",
+    "storage_bucket": "latihan-auth-efd2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801039536450:android:108715c5068a8eb624f8db",
+        "android_client_info": {
+          "package_name": "com.example.tugas_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801039536450-1m8agq22rs661rc648gqg0ben4b3slcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD3L1IYd7MemBWTiV3Gk7h8kdfpVyv09M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801039536450-1m8agq22rs661rc648gqg0ben4b3slcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

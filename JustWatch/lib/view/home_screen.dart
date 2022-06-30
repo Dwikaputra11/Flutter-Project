@@ -42,6 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text("JustWatch.", style: titleAppBar,),
+        flexibleSpace: Container(
+          width: size.width,
+          height: size.height*0.8,
+          child: Image.asset('lib/utils/img/background_dashboard.png', fit: BoxFit.fill,)
+        ),
         elevation: 0,
         leading: Builder(
           builder: (context){
