@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:tugas_flutter/screens/chat.dart';
 import 'package:tugas_flutter/screens/collection.dart';
 import 'package:tugas_flutter/screens/home.dart';
+import 'package:tugas_flutter/screens/job_detail.dart';
 import 'package:tugas_flutter/screens/login.dart';
 import 'package:tugas_flutter/screens/profile.dart';
 
-class RouteGenerator{
-  static Route<dynamic> generateRoute(RouteSettings settings){
-    switch(settings.name){
-      case '/': 
+class RouteGenerator {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case '/':
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
@@ -17,16 +18,23 @@ class RouteGenerator{
       case '/chat':
         return MaterialPageRoute(builder: (_) => Chat());
       case '/profile':
-        return MaterialPageRoute(builder: (_) => Profile()); 
+        return MaterialPageRoute(builder: (_) => Profile());
+      case '/job-detail':
+        return MaterialPageRoute(builder: (_) => JobDetail());
       default:
         return _errorRoute();
     }
   }
-  static Route<dynamic> _errorRoute(){
-    return MaterialPageRoute(builder: (_){
+
+  static Route<dynamic> _errorRoute() {
+    return MaterialPageRoute(builder: (_) {
       return Scaffold(
-        appBar: AppBar(title: Text('Error'),),
-        body: Center(child: Text('Error Page'),),
+        appBar: AppBar(
+          title: Text('Error'),
+        ),
+        body: Center(
+          child: Text('Error Page'),
+        ),
       );
     });
   }

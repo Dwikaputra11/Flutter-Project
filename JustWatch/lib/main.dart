@@ -1,6 +1,7 @@
 import 'package:final_project/configs/config.dart';
 import 'package:final_project/controller/auth_controller.dart';
 import 'package:final_project/utils/colors.dart';
+import 'package:final_project/view/dashboard_screen.dart';
 import 'package:final_project/view/home_screen.dart';
 import 'package:final_project/view/on_boarding.dart';
 import 'package:final_project/view/splash_screen.dart';
@@ -14,10 +15,10 @@ import 'view/on_boarding.dart';
 import 'view/register_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await firebaseInitialization.then((value){
-    Get.put(AuthController());
-  });
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await firebaseInitialization.then((value){
+  //   Get.put(AuthController());
+  // });
   runApp(const MyApp());
 }
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
       ),
       // home: const LoginScreen(),
-      home: CircularProgressIndicator(),
+      home: HomeScreen(email: 'dwika',),
     );
   }
 }

@@ -120,7 +120,7 @@ class Dashboard extends StatelessWidget {
                                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                                    )
+                                    ),
                                   ),
                                 ),
                                 child: Text(
