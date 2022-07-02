@@ -27,6 +27,7 @@ class DrawerScreen extends StatelessWidget {
           // DrawerListTile(
           //   icon: Icons.group,
           // ),
+          // drawerListTiles.map((e) => DrawerListTile(icon: e['iconData'], title: e['title'], onTilePressed: (){}),),
           DrawerListTile(
             icon: Icons.notifications,
             title: 'New Channel Chat',
@@ -34,7 +35,7 @@ class DrawerScreen extends StatelessWidget {
           ),
           DrawerListTile(
             icon: Icons.contacts,
-            title: 'contacts',
+            title: 'Contacts',
             onTilePressed: (){},
           ),
           DrawerListTile(

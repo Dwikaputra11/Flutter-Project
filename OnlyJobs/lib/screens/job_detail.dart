@@ -52,7 +52,7 @@ class JobDetail extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -67,11 +67,11 @@ class JobDetail extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontWeight: FontWeight.bold, color: Colors.grey.shade500),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            JobHeadline(),
-            SizedBox(
+            const JobHeadline(),
+            const SizedBox(
               height: 10,
             ),
             // DescList(selected: _selectedDesc, currentDesc: currentDesc,),
@@ -83,31 +83,15 @@ class JobDetail extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Apply Now'),
+                  child: const Text('Apply Now'),
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFFA994FF),
+                    primary: const Color(0xFFA994FF),
                     textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
             )
-
-            // InkWell(
-            //   onTap: () {},
-            //   child: Container(
-            //     width: 100,
-            //     height: 70,
-            //     child: Text(
-            //       'Apply Now',
-            //       style: Theme.of(context).textTheme.titleLarge!.copyWith(
-            //           color: Colors.white, fontWeight: FontWeight.bold),
-            //     ),
-            //     decoration: BoxDecoration(
-            //       color: Color(0xFFA994FF),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
