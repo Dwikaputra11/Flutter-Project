@@ -20,22 +20,25 @@ class Dashboard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RichText(
-                    text: TextSpan(children: [
-                      WidgetSpan(
-                        child:
-                            Image.asset('lib/assets/img/tugas12/icon_app.png'),
-                      ),
-                      const TextSpan(
-                        text: ' ',
-                      ),
-                      const TextSpan(
+                    text: TextSpan(
+                      children: [
+                        WidgetSpan(
+                          child: Image.asset(
+                              'lib/assets/img/tugas12/icon_app.png'),
+                        ),
+                        const TextSpan(
+                          text: ' ',
+                        ),
+                        const TextSpan(
                           text: 'OnlyJobs.',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
-                          ))
-                    ]),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   SvgPicture.asset('lib/assets/img/tugas12/notification.svg')
                 ],
@@ -53,20 +56,22 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 child: TextField(
-                    decoration: InputDecoration(
-                  border: const OutlineInputBorder(
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 0,
                         style: BorderStyle.none,
-                      )),
-                  hintText: 'Search',
-                  contentPadding: const EdgeInsets.all(10),
-                  prefixIcon:
-                      SvgPicture.asset('lib/assets/img/tugas12/search.svg'),
-                  suffixIcon:
-                      SvgPicture.asset('lib/assets/img/tugas12/filter.svg'),
-                )),
+                      ),
+                    ),
+                    hintText: 'Search',
+                    contentPadding: const EdgeInsets.all(10),
+                    prefixIcon:
+                        SvgPicture.asset('lib/assets/img/tugas12/search.svg'),
+                    suffixIcon:
+                        SvgPicture.asset('lib/assets/img/tugas12/filter.svg'),
+                  ),
+                ),
               ),
             ),
             const SizedBox(

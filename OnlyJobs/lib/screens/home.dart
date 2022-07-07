@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tugas_flutter/Widgets/drawer.dart';
 import 'package:tugas_flutter/screens/chat.dart';
 import 'package:tugas_flutter/screens/collection.dart';
 import 'package:tugas_flutter/screens/dashboard.dart';
 import 'package:tugas_flutter/screens/profile.dart';
-import 'package:tugas_flutter/Widgets/drawer.dart';
 
 import 'search.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -22,7 +20,7 @@ class _HomeState extends State<Home> {
     'Home': const Dashboard(),
     'Collection': Collection(),
     'Search': const Search(),
-    'Chat': Chat(),
+    'Chat': const Chat(),
     'Profile': const Profile(),
   };
 

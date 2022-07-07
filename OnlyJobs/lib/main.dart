@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tugas_flutter/screens/home.dart';
+import 'package:tugas_flutter/screens/on_boarding.dart';
+import 'package:tugas_flutter/screens/splash_screen.dart';
 import 'package:tugas_flutter/services/chat_provider.dart';
 
 import 'routes/routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,12 +28,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             fontFamily: 'Roboto',
-            scaffoldBackgroundColor: Color(0xFFF8F8F8),
+            scaffoldBackgroundColor: const Color(0xFFF8F8F8),
             // textTheme: Theme.of(context).textTheme.apply(displayColor: ),
             primarySwatch: Colors.purple,
             colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
                 .copyWith(secondary: Colors.amber)),
-        home: Home(),
+        home: const OnBoarding(),
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );
