@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -29,13 +30,18 @@ class FeaturedJobs extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         SizedBox(
           height: 140,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
+          width: double.infinity,
+          child: CarouselSlider.builder(
+            options: CarouselOptions(
+              viewportFraction: 0.8,
+            ),
             itemCount: 2,
-            itemBuilder: (ctx, i) => Container(
+            itemBuilder: (ctx, indexPage, realIndex) => Container(
               margin: const EdgeInsets.only(left: 10, right: 10),
               height: 140,
               width: 300,

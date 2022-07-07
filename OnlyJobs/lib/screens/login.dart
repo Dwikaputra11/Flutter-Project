@@ -45,11 +45,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   // focusNode: emailInput,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    enabledBorder: UnderlineInputBorder(
+                    enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                     ),
                     hintText: 'Email ID',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xFFC4C4C4),
                       fontWeight: FontWeight.w400
                     ),
@@ -65,11 +65,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   // focusNode: passInput,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    enabledBorder: UnderlineInputBorder(
+                    enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                     ),
                     hintText: 'Password',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xFFC4C4C4),
                       fontWeight: FontWeight.w400
                     ),
@@ -79,14 +79,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(right: 10.0),
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child:Text(
+                  child: Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: Color(0xFFAEAEAE),
+                      color:  Color(0xFFAEAEAE),
                       fontWeight: FontWeight.w700, 
                     ),
                   ),
@@ -101,9 +101,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                        backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFA994FF)),
+                        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFA994FF)),
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
+                          const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           )
                         ),
@@ -124,9 +124,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
-                  children: <Widget>[
+                  children: const <Widget>[
                     SizedBox(
                       width: 40,
                     ),
@@ -161,15 +161,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 40,
                     child: TextButton.icon(
                       style: TextButton.styleFrom(
-                        textStyle: TextStyle(color: Color(0xFF797979)),
-                        backgroundColor: Color(0xFFF8F8F8),
+                        textStyle: const TextStyle(color: Color(0xFF797979)),
+                        backgroundColor: const Color(0xFFF8F8F8),
                         shape:RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ), 
                       ),
                       onPressed: () => {},
                       icon: SvgPicture.asset('lib/assets/img/tugas12/google.svg'),
-                      label: Text('Login with Google',style: TextStyle(color: Color(0xFF797979), fontSize: 14,fontWeight: FontWeight.bold)),
+                      label: const Text('Login with Google',style: TextStyle(color: Color(0xFF797979), fontSize: 14,fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ),
@@ -179,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.only(bottom: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const <Widget>[
                       Text(
                         'New to OnlyJobs?',
                         style: TextStyle(color: Color(0xFF8D8D8D)),

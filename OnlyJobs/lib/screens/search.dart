@@ -21,7 +21,7 @@ class _SearchState extends State<Search> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
                 child: TextField(
                   // focusNode: ,
                   onEditingComplete: () {
@@ -29,7 +29,7 @@ class _SearchState extends State<Search> {
                       
                     });
                   },
-                  cursorRadius: Radius.circular(15),
+                  cursorRadius: const Radius.circular(15),
                   decoration: InputDecoration(
                     hintText: 'Search',
                     hintStyle: TextStyle(color: Colors.grey.shade600),
@@ -44,7 +44,7 @@ class _SearchState extends State<Search> {
                     // focusedBorder: OutlineInputBorder(),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.white,
                         width: 1,
                         style: BorderStyle.solid,
@@ -90,8 +90,8 @@ class _SearchState extends State<Search> {
                     ),
                     child: Center(
                       child: ListTile(
-                        title: Text('Computer Science'),
-                        subtitle: Text('Computer'),
+                        title: const Text('Computer Science'),
+                        subtitle: const Text('Computer'),
                         trailing: Container(
                           width: 70,
                           height: 30,

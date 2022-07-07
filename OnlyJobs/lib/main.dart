@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tugas_flutter/assets/colors/color.dart';
 import 'package:tugas_flutter/screens/home.dart';
 import 'package:tugas_flutter/screens/on_boarding.dart';
 import 'package:tugas_flutter/screens/splash_screen.dart';
@@ -27,12 +28,13 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          appBarTheme: const AppBarTheme(backgroundColor: Color(0xFFA994FF)),
             fontFamily: 'Roboto',
             scaffoldBackgroundColor: const Color(0xFFF8F8F8),
             // textTheme: Theme.of(context).textTheme.apply(displayColor: ),
-            primarySwatch: Colors.purple,
-            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
-                .copyWith(secondary: Colors.amber)),
+            primarySwatch: ColorTheme.primaryColor,
+            colorScheme: ColorScheme.fromSwatch(primarySwatch: ColorTheme.primaryColor,)
+                .copyWith(secondary: Colors.amber, onPrimary: Colors.white)),
         home: const OnBoarding(),
         onGenerateRoute: RouteGenerator.generateRoute,
       ),

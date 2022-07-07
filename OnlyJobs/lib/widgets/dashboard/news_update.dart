@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,12 +7,16 @@ class NewsUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 105,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
+      width: MediaQuery.of(context).size.width,
+      child: CarouselSlider.builder(
+        options: CarouselOptions(
+          viewportFraction: 0.8,
+          enlargeCenterPage: true,
+        ),
         itemCount: 2,
-        itemBuilder: (ctx, i) => Container(
+        itemBuilder: (ctx,indexPage, pageViewIndex) => Container(
           margin: const EdgeInsets.only(left: 10, right: 10),
           height: 105,
           width: 300,

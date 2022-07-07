@@ -8,7 +8,7 @@ class Chat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chats = Provider.of<ChatProvider>(context).items;
+    final chats = Provider.of<ChatProvider>(context,listen: false).items;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 15),
       child: ListView.builder(

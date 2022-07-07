@@ -64,9 +64,11 @@ class _HomeState extends State<Home> {
           ? null
           : AppBar(
               title: const Text('OnlyJobs'),
-              backgroundColor: const Color(0xFFA994FF),
               actions: [
-                IconButton(onPressed: () {}, icon: const Icon(Icons.search))
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                ),
               ],
             ),
       drawer: DrawerScreen(),

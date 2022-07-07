@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class DrawerScreen extends StatelessWidget {
   DrawerScreen({Key? key}) : super(key: key);
 
-  final List<Map<String,dynamic>> drawerListTiles = [
-    {'iconData': const Icon(Icons.group),'title': 'New Group'},
-    {'iconData': const Icon(Icons.lock),'title': 'New Secret Group'},
-    {'iconData': const Icon(Icons.notifications),'title': 'New Channel Chat'},
-    {'iconData': const Icon(Icons.contacts),'title': 'Contacts'},
-    {'iconData': const Icon(Icons.bookmark_border),'title': 'Saved Message'},
-    {'iconData': const Icon(Icons.phone),'title': 'Calls'},
+  final List<Map<String, dynamic>> drawerListTiles = [
+    {'iconData': const Icon(Icons.group), 'title': 'New Group'},
+    {'iconData': const Icon(Icons.lock), 'title': 'New Secret Group'},
+    {'iconData': const Icon(Icons.notifications), 'title': 'New Channel Chat'},
+    {'iconData': const Icon(Icons.contacts), 'title': 'Contacts'},
+    {'iconData': const Icon(Icons.bookmark_border), 'title': 'Saved Message'},
+    {'iconData': const Icon(Icons.phone), 'title': 'Calls'},
   ];
 
   @override
@@ -17,10 +17,23 @@ class DrawerScreen extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: <Widget>[
-          const UserAccountsDrawerHeader(
-            accountName: Text('I Made Dwika Putra Riswanda'),
-            accountEmail: Text('dwikariswanda@gmail.com'),
-            currentAccountPicture: CircleAvatar(
+          UserAccountsDrawerHeader(
+            accountName: Text(
+              'I Made Dwika Putra Riswanda',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: Colors.white)
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+            accountEmail: Text(
+              'dwikariswanda@gmail.com',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Colors.white),
+            ),
+            currentAccountPicture: const CircleAvatar(
               backgroundImage: AssetImage('lib/assets/img/dwika.jpg'),
             ),
           ),
@@ -31,22 +44,22 @@ class DrawerScreen extends StatelessWidget {
           DrawerListTile(
             icon: Icons.notifications,
             title: 'New Channel Chat',
-            onTilePressed: (){},
+            onTilePressed: () {},
           ),
           DrawerListTile(
             icon: Icons.contacts,
             title: 'Contacts',
-            onTilePressed: (){},
+            onTilePressed: () {},
           ),
           DrawerListTile(
             icon: Icons.bookmark_border,
             title: 'Saved Message',
-            onTilePressed: (){},
+            onTilePressed: () {},
           ),
           DrawerListTile(
             icon: Icons.phone,
             title: 'Calls',
-            onTilePressed: (){},
+            onTilePressed: () {},
           ),
         ],
       ),
@@ -54,7 +67,7 @@ class DrawerScreen extends StatelessWidget {
   }
 }
 
-class DrawerListTile extends StatelessWidget{
+class DrawerListTile extends StatelessWidget {
   final IconData icon;
   final String? title;
   final VoidCallback onTilePressed;
@@ -62,11 +75,11 @@ class DrawerListTile extends StatelessWidget{
   // const DrawerListTile(Key? key, this.iconData, this.title, this.onTilePressed)
   // :super(key: key);
   const DrawerListTile({
-    Key?  key,
+    Key? key,
     required this.icon,
     required this.title,
     required this.onTilePressed,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +87,10 @@ class DrawerListTile extends StatelessWidget{
       onTap: onTilePressed,
       dense: true,
       leading: Icon(icon),
-      title: Text(title!, style: const TextStyle(fontSize: 16),),
+      title: Text(
+        title!,
+        style: const TextStyle(fontSize: 16),
+      ),
     );
   }
 }
