@@ -27,6 +27,7 @@ class Profile extends StatelessWidget {
                     height: 120,
                   ),
                 ),
+                const SizedBox(height: 20,),
                 Text(
                   'Dwika Putra',
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -36,6 +37,7 @@ class Profile extends StatelessWidget {
                       ),
                 ),
                 const Text('Mobile Developer'),
+                const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[

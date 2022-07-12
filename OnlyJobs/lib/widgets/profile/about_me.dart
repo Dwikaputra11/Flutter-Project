@@ -6,7 +6,7 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Column(
         children: <Widget>[
           Row(
@@ -19,14 +19,14 @@ class AboutMe extends StatelessWidget {
                     ),
               ),
               IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.edit,
                     color: Color(0xFFA994FF),
                   ),
                   onPressed: () {}),
             ],
           ),
-          Text(
+          const Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit et id in integer ut enim sed cursus pharetra. Purus cursus at sodales diam mattis blandit bibendum id et.',
           ),
         ],

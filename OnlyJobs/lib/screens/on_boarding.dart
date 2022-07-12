@@ -115,7 +115,7 @@ class _OnBoardingState extends State<OnBoarding> {
                                           ),
                                         ),
                                         onPressed: () {
-                                          Navigator.of(context).pushReplacementNamed('/home');
+                                          Navigator.of(context).pushReplacementNamed('/login');
                                         },
                                         child: Text(
                                           'Get Started',

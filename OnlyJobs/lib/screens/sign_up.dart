@@ -2,23 +2,36 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const routeName = '/login';
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpState extends State<SignUp> {
+  FocusNode emailInput = FocusNode();
+  FocusNode passInput = FocusNode();
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
+
+  void _passwordVisibility() {
+    setState(() {
+      _isPasswordVisible = !_isPasswordVisible;
+    });
+  }
+
+  void _confirmPasswordVisibility() {
+    setState(() {
+      _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    FocusNode emailInput = FocusNode();
-    FocusNode passInput = FocusNode();
     return Scaffold(
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,12 +39,12 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 width: size.width,
                 margin: const EdgeInsets.only(top: 30),
-                child: SvgPicture.asset('lib/assets/img/tugas12/login.svg'),
+                child: SvgPicture.asset('lib/assets/img/sign_up.svg'),
               ),
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: Text(
-                  'Login',
+                  'Sign Up',
                   style: Theme.of(context)
                       .textTheme
                       .displaySmall
@@ -60,43 +73,98 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: TextField(
-                  obscureText: true,
+                  obscureText: !_isPasswordVisible,
                   // focusNode: passInput,
                   decoration: InputDecoration(
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFE5E5E5)),
-                      ),
-                      focusedBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFE5E5E5)),
-                      ),
-                      hintText: 'Password',
-                      hintStyle: const TextStyle(
-                          color: Color(0xFFC4C4C4),
-                          fontWeight: FontWeight.w400),
-                      icon: SvgPicture.asset(
-                          'lib/assets/img/tugas12/password.svg'),
-                      suffixIcon: SvgPicture.asset(
-                          'lib/assets/img/tugas12/not_visible.svg')
-                      // prefixIcon: SvgPicture.asset('assets/img/tugas12/email.svg'),
-                      ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        color: Color(0xFFAEAEAE),
-                        fontWeight: FontWeight.w700,
-                      ),
+                    labelText: 'Password',
+                    labelStyle: const TextStyle(color: const Color(0xFFC4C4C4),fontWeight: FontWeight.w400),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                     ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                    ),
+                    // hintText: 'Password',
+                    // hintStyle: const TextStyle(
+                    //     color: Color(0xFFC4C4C4), fontWeight: FontWeight.w400),
+                    icon:
+                        SvgPicture.asset('lib/assets/img/tugas12/password.svg'),
+                    suffixIcon: IconButton(
+                      onPressed: _passwordVisibility,
+                      icon: _isPasswordVisible
+                          ? const Icon(Icons.visibility_rounded)
+                          : const Icon(Icons.visibility_off_rounded),
+                      color: const Color(0xFFC5C5C5),
+                    ),
+                    // prefixIcon: SvgPicture.asset('assets/img/tugas12/email.svg'),
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: TextField(
+                  obscureText: !_isConfirmPasswordVisible,
+                  // focusNode: passInput,
+                  decoration: InputDecoration(
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFFE5E5E5)),
+                    ),
+                    hintText: 'Confirm Password',
+                    hintStyle: const TextStyle(
+                        color: Color(0xFFC4C4C4), fontWeight: FontWeight.w400),
+                    icon:
+                        SvgPicture.asset('lib/assets/img/tugas12/password.svg'),
+                    suffixIcon: IconButton(
+                      onPressed: _confirmPasswordVisibility,
+                      icon: _isConfirmPasswordVisible
+                          ? const Icon(Icons.visibility_rounded)
+                          : const Icon(Icons.visibility_off_rounded),
+                      color: const Color(0xFFC5C5C5),
+                    ),
+                    // prefixIcon: SvgPicture.asset('assets/img/tugas12/email.svg'),
+                  ),
+                ),
+              ),
+              Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'By signing up, you’re agree to our ',
+                      style: const TextStyle(
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'Terms and Conditions ',
+                          style: const TextStyle(
+                            color: Color(0xFF000AFF),
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap =
+                                () => Navigator.of(context).pushNamed('/login'),
+                        ),
+                        const TextSpan(
+                          text: 'And ',
+                          style: const TextStyle(
+                            color: Colors.black
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Privacy Policy.',
+                          style: const TextStyle(
+                            color: Color(0xFF000AFF),
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap =
+                                () => Navigator.of(context).pushNamed('/login'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -117,10 +185,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           shadowColor:
                               MaterialStateProperty.all<Color>(Colors.grey)),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/user-profile-input');
                       },
                       child: const Text(
-                        'Login',
+                        'Sign Up',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -178,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       icon:
                           SvgPicture.asset('lib/assets/img/tugas12/google.svg'),
                       label: const Text(
-                        'Login with Google',
+                        'Sign Up with Google',
                         style: TextStyle(
                             color: Color(0xFF797979),
                             fontSize: 14,
@@ -193,21 +261,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: RichText(
                     text: TextSpan(
-                      text: 'New to OnlyJobs? ',
+                      text: 'Join us before? ',
                       style: const TextStyle(
                         color: Color(0xFF797979),
                         fontSize: 14,
                       ),
                       children: [
                         TextSpan(
-                          text: 'Register',
+                          text: 'Login',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
                             fontWeight: FontWeight.w700,
                           ),
                           recognizer: TapGestureRecognizer()
-                            ..onTap = () =>
-                                Navigator.of(context).pushNamed('/sign-up'),
+                            ..onTap =
+                                () => Navigator.of(context).pushNamed('/login'),
                         )
                       ],
                     ),

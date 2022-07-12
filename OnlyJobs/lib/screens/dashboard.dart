@@ -5,6 +5,7 @@ import 'package:tugas_flutter/widgets/dashboard/news_update.dart';
 import 'package:tugas_flutter/widgets/dashboard/recommends.dart';
 
 class Dashboard extends StatelessWidget {
+  static const routeName = '/dashboard';
   const Dashboard({Key? key}) : super(key: key);
 
   @override

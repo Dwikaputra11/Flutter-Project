@@ -4,6 +4,7 @@ import 'package:tugas_flutter/widgets/job_detail/description_list.dart';
 import 'package:tugas_flutter/widgets/job_detail/job_headline.dart';
 
 class JobDetail extends StatelessWidget {
+  static const routeName = '/job-detail';
   const JobDetail({Key? key}) : super(key: key);
 
   // int currentDesc = 0;

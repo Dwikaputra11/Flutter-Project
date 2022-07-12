@@ -8,6 +8,7 @@ import 'package:tugas_flutter/screens/profile.dart';
 import 'search.dart';
 
 class Home extends StatefulWidget {
+  static const routeName = '/home';
   const Home({Key? key}) : super(key: key);
 
   @override

@@ -39,8 +39,10 @@ class FeaturedJobs extends StatelessWidget {
           child: CarouselSlider.builder(
             options: CarouselOptions(
               viewportFraction: 0.8,
+              enableInfiniteScroll: false,
+              initialPage: 1,
             ),
-            itemCount: 2,
+            itemCount: 3,
             itemBuilder: (ctx, indexPage, realIndex) => Container(
               margin: const EdgeInsets.only(left: 10, right: 10),
               height: 140,
