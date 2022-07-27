@@ -1,37 +1,39 @@
-import 'dart:developer';
+import 'dart:developer' show log;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:project_akhir/constants/string.dart';
+import 'package:provider/provider.dart';
 
-class CheckButton extends StatefulWidget{
-  final color;
-  CheckButton({required this.color});
+import 'package:project_akhir/constants/string.dart';
+import 'package:project_akhir/models/activity.dart';
+
+class CheckButton extends StatefulWidget {
+  final Color color;
+  const CheckButton({
+    Key? key,
+    required this.color,
+  }) : super(key: key);
   @override
-  _CheckButtonState createState() => _CheckButtonState(iconColor: color);
+  _CheckButtonState createState() => _CheckButtonState();
   
 }
 
 class _CheckButtonState extends State<CheckButton>{
-  bool isCheck = false;
-  final iconColor;
-
-  _CheckButtonState({required this.iconColor});
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return IconButton(
-      onPressed: () {
-        setState(() {
-          isCheck = !isCheck;
-          log('isCheck --> $isCheck');
-        });
-      }, 
-      icon: SvgPicture.asset(
-        isCheck ? checkBold : uncheck,
-        color: iconColor,
-      )
+    return Consumer<Activity>(
+      builder: (ctx, activity, child) => IconButton(
+        onPressed: () {
+          setState(() {
+            activity.toggleFinishStatus();
+            log('isCheck --> ${activity.isFinish}');
+          }); 
+        }, 
+        icon: SvgPicture.asset(
+          activity.isFinish ? checkBold : uncheck,
+          color: widget.color,
+        )
+      ),
     );
   }
 }

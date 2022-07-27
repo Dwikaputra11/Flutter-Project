@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-
 const String menuButtonIcon = 'images/menu_button.svg';
 const String sportIcon = 'images/sport.svg';
 const String healthCareIcon = 'images/healthcare.svg';
-const String shoppingIcon = 'images/shopping.svg';
+const String shoppingIcon = 'lib/assets/img/shopping.svg';
 const String forFunIcon  = 'images/for_fun.svg';
 const String checkBold = 'images/check_bold.svg';
 const String uncheck = 'images/uncheck.svg';
