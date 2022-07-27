@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_akhir/constants/colors.dart';
 import 'package:project_akhir/constants/string.dart';

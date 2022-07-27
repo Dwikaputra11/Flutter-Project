@@ -102,7 +102,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               child: Text('Get Started'),
                             ),
                             onPressed: (){
-                              Get.to(() => HomeScreenMobile());
+                              Get.to(() => const HomeScreenMobile());
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.amber,

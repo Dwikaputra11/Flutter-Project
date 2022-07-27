@@ -17,8 +17,9 @@ class SliderPage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Container(
-          color: const Color(0xFFE7F1F8),
-          child: Stack(children: <Widget>[
+        color: const Color(0xFFE7F1F8),
+        child: Stack(
+          children: <Widget>[
             Column(
               children: [
                 Container(
@@ -65,7 +66,9 @@ class SliderPage extends StatelessWidget {
                 )
               ],
             )
-          ])),
+          ],
+        ),
+      ),
     );
   }
 }

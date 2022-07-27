@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:project_akhir/db/db_helper.dart';
 
 import '../constants/colors.dart';
+import '../db/db_helper.dart';
 import '../models/activity.dart';
 
 class ActivityProvider with ChangeNotifier {
@@ -177,7 +176,7 @@ class ActivityProvider with ChangeNotifier {
       ),
     );
   }
-
+  
   Future<void> fetchAndSetActivity() async {
     final dataList = await DBHelper.getData(DBHelper.tableName);
     _activities = dataList

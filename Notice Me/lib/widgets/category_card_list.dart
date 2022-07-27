@@ -49,7 +49,6 @@ class CardListMobile extends StatelessWidget {
     }
     var categories =
         Provider.of<CategoryProvider>(context, listen: false).getCategories;
-    var size = MediaQuery.of(context).size;
     return GridView.builder(
       itemCount: categories.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
