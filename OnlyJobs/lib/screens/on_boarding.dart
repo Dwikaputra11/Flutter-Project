@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:tugas_flutter/widgets/slider_page.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -11,35 +11,121 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  final List<Map<String, String>> _pages = [
-    {
-      'image': 'lib/assets/img/on_boarding_1.svg',
-      'title': 'Apply Everywhere!',
-      'description':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Tellus tortor at aenean feugiat integer neque. Laoreet libero purus adipiscing sed.'
-    },
-    {
-      'image': 'lib/assets/img/on_boarding_2.svg',
-      'title': 'Make it Easy!',
-      'description':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Tellus tortor at aenean feugiat integer neque. Laoreet libero purus adipiscing sed.'
-    },
-    {
-      'image': 'lib/assets/img/on_boarding_3.svg',
-      'title': 'Find it Now!',
-      'description':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Tellus tortor at aenean feugiat integer neque. Laoreet libero purus adipiscing sed.'
-    },
+  int _currentPage = 0;
+  final PageController _controller = PageController();
+  final List<Widget> _pages = [
+    const SliderPage(
+      title: 'Apply Everywhere!',
+      image: 'lib/assets/img/on_boarding_1.svg',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Tellus tortor at aenean feugiat integer neque. Laoreet libero purus adipiscing sed.',
+    ),
+    const SliderPage(
+      title: 'Make it Easy!',
+      image: 'lib/assets/img/on_boarding_2.svg',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Tellus tortor at aenean feugiat integer neque. Laoreet libero purus adipiscing sed.',
+    ),
+    const SliderPage(
+      title: 'Find it Now!',
+      image: 'lib/assets/img/on_boarding_3.svg',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Tellus tortor at aenean feugiat integer neque. Laoreet libero purus adipiscing sed.',
+    ),
   ];
+
+  _onPageChanged(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
       print('build');
     }
-    return Scaffold(
-      backgroundColor: const Color(0xFF937BF6),
-      body: SafeArea(
+    return WillPopScope(
+        child: Scaffold(
+          body: Stack(
+            children: <Widget>[
+              PageView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: _pages.length,
+                controller: _controller,
+                onPageChanged: _onPageChanged,
+                itemBuilder: (context, index) => _pages[index],
+              ),
+              dotIndicator(_currentPage),
+              if (_currentPage == _pages.length - 1)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Center(
+                        child: SizedBox(
+                          width: 150,
+                          height: 40,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color(0xFFA994FF),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pushReplacementNamed('/login');
+                            },
+                            child: Text(
+                              'Get Started',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge!
+                                  .copyWith(fontWeight: FontWeight.bold)
+                                  .copyWith(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+        onWillPop: () async {
+          return false;
+        });
+  }
+
+  Widget dotIndicator(int indexPage) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List<Widget>.generate(
+              _pages.length,
+              (index) {
+                return AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  height: (index == indexPage) ? 10 : 8,
+                  width: (index == indexPage) ? 10 : 8,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 30),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: (index == indexPage)
+                          ? Colors.white
+                          : Colors.white.withOpacity(0.5)),
+                );
+              },
+            ),
+          ),
+        ],
+      );
+
+  Widget CarousaleVersion() => SafeArea(
         child: Stack(
           children: [
             CarouselSlider.builder(
@@ -56,10 +142,10 @@ class _OnBoardingState extends State<OnBoarding> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset(
-                          _pages[indexPage]['image']!,
-                          fit: BoxFit.cover,
-                        ),
+                        // SvgPicture.asset(
+                        // _pages[indexPage]['image']!,
+                        //   fit: BoxFit.cover,
+                        // ),
                         Container(
                           width: double.infinity,
                           height: 350,
@@ -78,25 +164,25 @@ class _OnBoardingState extends State<OnBoarding> {
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
-                                  _pages[indexPage]['title']!,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(
-                                        fontWeight: FontWeight.bold,
-                                      )
-                                      .copyWith(
-                                        color: Colors.black,
-                                      ),
-                                ),
+                                // Text(
+                                //   _pages[indexPage]['title']!,
+                                //   style: Theme.of(context)
+                                //       .textTheme
+                                //       .headline4!
+                                //       .copyWith(
+                                //         fontWeight: FontWeight.bold,
+                                //       )
+                                //       .copyWith(
+                                //         color: Colors.black,
+                                //       ),
+                                // ),
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
-                                  _pages[indexPage]['description']!,
-                                  style: Theme.of(context).textTheme.bodyLarge,
-                                ),
+                                // Text(
+                                //   _pages[indexPage]['description']!,
+                                //   style: Theme.of(context).textTheme.bodyLarge,
+                                // ),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.18,
@@ -115,7 +201,8 @@ class _OnBoardingState extends State<OnBoarding> {
                                           ),
                                         ),
                                         onPressed: () {
-                                          Navigator.of(context).pushReplacementNamed('/login');
+                                          Navigator.of(context)
+                                              .pushReplacementNamed('/login');
                                         },
                                         child: Text(
                                           'Get Started',
@@ -140,27 +227,6 @@ class _OnBoardingState extends State<OnBoarding> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget dotIndicator(int indexPage) => Positioned(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List<Widget>.generate(_pages.length, (index) {
-            return AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              height: (index == indexPage) ? 10 : 8,
-              width: (index == indexPage) ? 10 : 8,
-              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 30),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: (index == indexPage)
-                      ? Colors.white
-                      : Colors.white.withOpacity(0.5)),
-            );
-          }),
         ),
       );
 }
